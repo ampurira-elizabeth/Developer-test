@@ -1,0 +1,142 @@
+<template>
+    <div>
+        <div class="flex w-full items-center justify-between ">
+            <div class="mx-5 ... flex ">
+                <div>
+                    <StarIcon class="h-4 w-3 fill-white bg-yellow-500" />
+                </div>
+                <div class="w-full ">
+                    <h1 class="font-medium">Statra Insurance</h1>
+                </div>
+                <div>
+                    <Chevron-DownIcon class="h-6 w-4 cursor-pointer " />
+                </div>
+            </div>
+            <div class="flex space-x-0 ">
+                <UserCircleIcon class="h-4 w-4" />
+                <UserCircleIcon class="h-4 w-4" />
+                <UserCircleIcon class="h-4 w-4 " />
+            </div>
+            <div class="mx-5... flex border-2 border-gray-300 drop-shadow-lg">
+                <div>
+                    <BriefcaseIcon class="h-5 w-5 p-1" />
+                </div>
+                <div>
+                    <h1>apps</h1>
+                </div>
+                <div>
+                    <Chevron-DownIcon class="h-6 w-4 cursor-pointer " />
+                </div>
+            </div>
+            <div class="mx-5 ... bg-black ... rounded-lg flex text-white 300/100 ">
+                <div>
+                    <PlusIcon class="h-7 w-3" />
+                </div>
+                <div>
+                    <ModalPopup />
+                </div>
+
+            </div>
+
+        </div>
+        <div class="flex mt-5 p-2 font-medium drop-shadow-lg   border-b-2 border-gray-300  ">
+            <div class="flex  flex-1">
+                <div>
+                    <NewspaperIcon class="h-6 w-3" />
+                </div>
+                <div>
+                    <h6>Backlog</h6>
+                </div>
+            </div>
+            <div class="flex  flex-1">
+                <div>
+                    <CameraIcon class="h-6 w-3" />
+                </div>
+                <div>
+                    <h6>Priority chart</h6>
+                </div>
+            </div>
+            <div class="flex  flex-1">
+                <div>
+                    <ChartBarIcon class="h-6 w-3 " />
+                </div>
+                <div>
+                    <h6>Kanban Workflow</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- mainbody -->
+        <div class=" mr-10 p-2 flex border-b-2 border-gray-300   ">
+            <div class="flex flex-1">
+                <div>
+                    <MagnifyingGlassIcon class="h-6 w-4  " />
+                </div>
+                <div>
+                    <input type="text" placeholder="search for something" class="bg-transparent" />
+                </div>
+            </div>
+            <div class=" flex-1 flex ">
+                <div>
+                    <Switch v-model="switchState" class=" mr-2" />
+                </div>
+             <div >
+                    <DatePicker class="bg-none" />
+                </div>
+            </div>
+            <div>
+                <div class="flex flex-1">
+                    <div>
+                        <FolderArrowDownIcon class="h-6 w-3" />
+                    </div>
+                    <div>
+                        <p>Share</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script  >
+import { PlusIcon } from "@heroicons/vue/20/solid";
+import { StarIcon } from "@heroicons/vue/20/solid";
+import { CameraIcon } from "@heroicons/vue/20/solid";
+import { MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
+import { FolderArrowDownIcon } from "@heroicons/vue/20/solid";
+import { ChartBarIcon } from "@heroicons/vue/20/solid";
+import { NewspaperIcon } from "@heroicons/vue/20/solid";
+import { BriefcaseIcon } from "@heroicons/vue/20/solid";
+import { ChevronDownIcon } from "@heroicons/vue/20/solid";
+import { ChevronUpIcon } from "@heroicons/vue/20/solid";
+import { UserCircleIcon } from "@heroicons/vue/20/solid";
+import Switch from "./Switch.vue"
+import Calendar from "./Calender.vue"
+import ModalPopup from './ModalPopup.vue'
+import DatePicker from './DatePicker.vue'
+export default {
+    components: {
+        PlusIcon, StarIcon, DatePicker, Switch, ChevronUpIcon, Calendar, ModalPopup,
+        CameraIcon, MagnifyingGlassIcon, FolderArrowDownIcon,
+        ChartBarIcon, NewspaperIcon, BriefcaseIcon, ChevronDownIcon, UserCircleIcon,
+    },
+    data() {
+        return {
+            switchState: false
+        }
+    },
+    methods: {
+
+    }
+
+}
+
+
+
+</script>
+
+
+<style>
+
+</style>
