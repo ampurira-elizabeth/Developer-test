@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen px-2 bg-gray-50 pt-2 space-y-5 ">
+  <div class="h-screen px-2 bg-gray-50 pt-2 space-y-5">
     <div>
       <h3 class="text-xl font-medium p-3">Flows list</h3>
     </div>
