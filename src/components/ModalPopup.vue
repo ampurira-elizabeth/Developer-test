@@ -96,6 +96,8 @@
   
 <script setup>
 import { ref } from 'vue'
+import  db_tasks from '../../server/server.js'
+import { addDoc } from 'firebase/firestore';
 import {
     TransitionRoot,
     TransitionChild,
@@ -111,12 +113,35 @@ const startDate = ref("")
 const endDate = ref("")
 const category1=ref("")
 const category2=ref("")
-const handleSubmit = () => {
-    console.log(`priority ${priority.value}, projectName ${projectName.value}, 
-    startDate ${startDate.value}, endDate ${endDate.value}
-    category1 ${category1.value}, category2 ${category2.value}`)
-}
 
+async function handleSubmit(){
+     let my_data={
+        projectNam: projectName.value, 
+        priority : priority.value,
+         category1: category1.value, 
+         category2: category2.value, 
+         startDate: startDate.value, 
+         endDate : endDate.value,
+        }
+        addDoc(db_tasks, my_data).then(() => {
+            console.log("Document successfully written!");
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error)});
+        }
+    // console.log(`priority ${priority.value}, projectName ${projectName.value}, 
+    // startDate ${startDate.value}, endDate ${endDate.value}
+    // category1 ${category1.value}, category2 ${category2.value}`)
+
+
+//  const data= JSON.parse(localStorage.getItem('projectName'));
+//  const projects=document.getElementById('projectName');
+//  projects.innerHTML=data
+
+//  const fetchdata =()=>{
+//     fetch('http://localhost:5173/')
+//   .then(res => res.json())
+//  }
 
 function closeModal() {
     isOpen.value = false
