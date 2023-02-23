@@ -23,7 +23,9 @@
     "vue": "^3.2.45",
     "vue-axios": "^3.5.2",
     "vue-draggable-next": "^2.1.1",
-    "vue3-draggable": "^2.0.9"
+    "vue-smooth-dnd": "^0.8.1",
+    "vue3-draggable": "^2.0.9",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",

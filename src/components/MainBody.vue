@@ -4,33 +4,38 @@
             <P class="text-left mx-8">To do
                 <span class="p-2"> :</span>
             </P>
-            <div v-for="task in tasks" :key="task.id" ondrop="drop(event)" ondragover="allowDrop(event )">
-
-                <Card :task="task" draggable="true" ondragstart="drag(event)" />
+           
+            <draggable v-model="tasks" @start="drag=true" 
+            @end="drag=false" >
+           <div v-for="task in tasks" :key="task.id" >
+                <Card :task="task" :item="item" />
             </div>
-            <div ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
-
+        </draggable>
         </div>
 
         <div class="bg-gray-50 flex-1 text-sm">
             <p class="mx-10 text-left">In progress
                 <span class="p-2"> :</span>
             </p>
-            <div v-for="task in tasks" :key="task.id" ondrop="drop(event)" ondragover="allowDrop(event )">
+            <draggable v-model="tasks" @start="drag=true"
+            @end="drag=false" >
+            <div v-for="task in tasks" :key="task.id" >
 
-                <Card :task="task" draggable="true" ondragstart="drag(event)" />
+                <Card :task="task"  />
             </div>
-            <div ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
-
+        </draggable>
         </div>
         <div class="bg-gray-50  flex-1 text-sm">
             <P class="mx-10 text-left">Done
                 <span class="p-2"> :</span>
             </P>
-            <div v-for="task in tasks" :key="task.id" ondrop="drop(event)" ondragover="allowDrop(event )">
-                <Card :task="task" draggable="true" ondragstart="drag(event)" />
+            <draggable v-model="tasks" @start="drag=true"
+            @end="drag=false" >
+            <div v-for="task in tasks" :key="task.id"  >
+
+                <Card :task="task"  />
             </div>
-            <div ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        </draggable>
         </div>
     </div>
 </template>
@@ -38,29 +43,22 @@
 <script>
 import Card from "./Card.vue"
 import db_tasks from "../../server/server.js"
+import {VueDraggableNext} from "vue-draggable-next"
 import { getDocs, doc, deleteDoc } from "firebase/firestore"
 export default {
     components: {
         Card,
+        draggable:VueDraggableNext,
     },
     data() {
         return {
-            tasks: []
+            tasks: [],
         }
     },
 
     methods: {
-        allowDrop(ev) {
-            ev.preventDefault();
-        },
-        drag(ev) {
-            ev.dataTransfer.setData("text",ev.target.id)
-        },
-        drop(ev) {
-            ev.preventDefault()
-            var data = ev.dataTransfer.getData("text");
-            ev.terget.appendChild(document.getElementById(data))
-        },
+    
+
 
         // fetch data from firebase
         async getTasks() {
@@ -85,4 +83,7 @@ export default {
     },
 }
 </script>
-<style></style>
+<style >
+
+
+</style>
