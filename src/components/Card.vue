@@ -4,9 +4,14 @@
         <div class="flex mb-4">
             <div>
                 <UserCircleIcon class="h-7 w-4" />
+                
             </div>
             <div class=" ml-40 text-sm bg-yellow-100 text-red-500  p-1 rounded-lg">
                 <p>{{ task?.priority }}</p>
+            </div>
+            <div>
+                <!-- <TrashIcon class="h-7 w-2 ml-6 " @click.prevent="deleteTask" />   -->
+                 
             </div>
         </div>
         <p>{{ task?.projectNam }}</p>
@@ -26,22 +31,51 @@
         </div>
     </div>
 </template>
+
+
 <script >
 import { UserCircleIcon } from "@heroicons/vue/20/solid";
 import { CalendarIcon } from "@heroicons/vue/20/solid";
+import {TrashIcon} from "@heroicons/vue/20/solid";
 import EditPopup from './EditPopup.vue'
+import { doc, deleteDoc }
+    from 'firebase/firestore';
+import db_tasks from '../../server/server.js'
 export default {
     components: {
         UserCircleIcon,
         CalendarIcon,
+        TrashIcon,
         EditPopup,
+    },
+    data() {
+        return {
+             db_tasks,deleteDoc,doc, 
+            selectedtask: {},
+            taskId: null,
+            docRef: null,
+            isOpen: false,
+            priority: "",
+            projectName: "",
+            startDate: "",
+            endDate: "",
+            category1: "",
+            category2: "",
+        }
     },
    
 props:{
     task:Object
+},
+
+methods:{
+
+        
+
 }
 
 }
+
 </script>
  
 <style scoped></style>

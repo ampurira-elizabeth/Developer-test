@@ -1,41 +1,51 @@
 <template>
-    <div class="flex gap-4  flex-wrap ">
-        <div class="bg-gray-50  flex-1 text-sm ">
-            <P class="text-left mx-8">To do
-                <span class="p-2"> :</span>
-            </P>
-           
-            <draggable v-model="tasks" @start="drag=true" 
-            @end="drag=false" >
-           <div v-for="task in tasks" :key="task.id" >
-                <Card :task="task" :item="item" />
+    <div>
+        <div>
+
+            <div class=" text-sm cursor-pointer  " v-for="task in tasks" :key="task.id">
+                <div @click="setTask(task)" class="p-1 w-full">
+                    {{ task.category1 }}
+                </div>
+
             </div>
-        </draggable>
+            <input type="date" class="text-sm bg-none" v-model="startDate" />
+            <input type="date" class="text-sm" v-endDate="endDate" />
+
         </div>
-
-        <div class="bg-gray-50 flex-1 text-sm">
-            <p class="mx-10 text-left">In progress
-                <span class="p-2"> :</span>
-            </p>
-            <draggable v-model="tasks" @start="drag=true"
-            @end="drag=false" >
-            <div v-for="task in tasks" :key="task.id" >
-
-                <Card :task="task"  />
+        <div class="flex gap-4  flex-wrap">
+            <div class="bg-gray-50  flex-1 text-sm ">
+                <P class="text-left mx-8">To do
+                    <span class="p-2"> :</span>
+                </P>
+                <draggable v-model="tasks" @start="drag = true" @end="drag = false">
+                    <div v-for="task in tasks" :key="task.id">
+                        <Card :task="task" :item="item" />
+                    </div>
+                </draggable>
             </div>
-        </draggable>
-        </div>
-        <div class="bg-gray-50  flex-1 text-sm">
-            <P class="mx-10 text-left">Done
-                <span class="p-2"> :</span>
-            </P>
-            <draggable v-model="tasks" @start="drag=true"
-            @end="drag=false" >
-            <div v-for="task in tasks" :key="task.id"  >
 
-                <Card :task="task"  />
+            <div class="bg-gray-50 flex-1 text-sm">
+                <p class="mx-10 text-left">In progress
+                    <span class="p-2"> :</span>
+                </p>
+                <draggable v-model="tasks" @start="drag = true" @end="drag = false">
+                    <div v-for="task in tasks" :key="task.id">
+
+                        <Card :task="task" />
+                    </div>
+                </draggable>
             </div>
-        </draggable>
+            <div class="bg-gray-50  flex-1 text-sm">
+                <P class="mx-10 text-left">Done
+                    <span class="p-2"> :</span>
+                </P>
+                <draggable v-model="tasks" @start="drag = true" @end="drag = false">
+                    <div v-for="task in tasks" :key="task.id">
+
+                        <Card :task="task" />
+                    </div>
+                </draggable>
+            </div>
         </div>
     </div>
 </template>
@@ -43,23 +53,24 @@
 <script>
 import Card from "./Card.vue"
 import db_tasks from "../../server/server.js"
-import {VueDraggableNext} from "vue-draggable-next"
+import { VueDraggableNext } from "vue-draggable-next"
 import { getDocs, doc, deleteDoc } from "firebase/firestore"
 export default {
     components: {
         Card,
-        draggable:VueDraggableNext,
+        draggable: VueDraggableNext,
     },
     data() {
         return {
             tasks: [],
+            selectedCategory: null,
+            startDates: null,
+
+
         }
     },
 
     methods: {
-    
-
-
         // fetch data from firebase
         async getTasks() {
             console.log('loadind data')
@@ -72,18 +83,31 @@ export default {
                 let Docdata = doc.data()
                 Docdata.id = doc.id
                 tasks.push(Docdata)
+                console.log('data fetched', Docdata);
             })
 
             this.tasks = tasks
 
-        }
+        },
+        setTask(task) {
+            this.selectedCategory = task.category1;
+            this.startDates= task.startDate
+            console.log('sdate', this.startDates)
+            console.log('selected category', this.selectedCategory);
+            let filtered = this.tasks.filter((item) =>
+                item.category1 == this.selectedCategory
+            )
+            this.tasks = []
+            this.tasks.push(...filtered)
+            console.log('filtered tasks', typeof (filtered))
+
+
+        },
     },
-    mounted() {
-        this.getTasks()
+    created() {
+        this.getTasks();
     },
+
 }
 </script>
-<style >
-
-
-</style>
+<style ></style>

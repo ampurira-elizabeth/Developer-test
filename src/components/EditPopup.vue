@@ -1,14 +1,19 @@
 <template>
-    <div>
-        <button type="button" @click="showEdit(task)" class="rounded-md  ml-8  text-sm font-medium text-black bg-gray-200 ">
-            edit
-            <!-- <PencilSquareIcon class="h-3 w-4 fill-black " /> -->
-        </button>
+    <div class="flex">
+        <p  @click="showEdit(task)" class="rounded-md  ml-8  text-sm font-medium text-black  ">
+            <!-- edit -->
+            <PencilIcon class="h-7 w-4 "/>
+        </p>
+        <div>
+            <!-- <p >del</p> -->
+            <TrashIcon class="h-7 w-4 ml-2" @click="deleteTask(task)"   />
+
+        </div>
     </div>
 
     <div v-if="isOpen" class=" absolute border border-gray-300 bg-white shadow-lg p-10 w-[500px] h-[500px] z-50">
 
-        <p @click="closeModal" class="text-sm">X</p>
+        <p @click="closeModal" class="text-sm cursor-pointer">X</p>
         <form class="align-center p-3 " @submit.prevent="updateTask">
             <div class="flex ">
                 <div class="p-3">
@@ -76,8 +81,9 @@
 <script >
 import { ref } from 'vue'
 import db_tasks from '../../server/server.js'
-import { PencilSquareIcon } from "@heroicons/vue/20/solid"
-import { addDoc, doc, setDoc, updateDoc }
+import { TrashIcon } from "@heroicons/vue/20/solid";
+import {PencilIcon} from "@heroicons/vue/20/solid"
+import { addDoc, doc, setDoc, updateDoc, deleteDoc }
     from 'firebase/firestore';
 import {
     TransitionRoot,
@@ -88,10 +94,15 @@ import {
 } from '@headlessui/vue'
 
 export default {
+    components:{
+        TrashIcon,
+        PencilIcon,
+    },
     props: ['task'],
     data() {
         return {
-            doc, db_tasks, addDoc, updateDoc, setDoc, PencilSquareIcon,
+            doc, db_tasks, addDoc, updateDoc, setDoc, deleteDoc,
+
             selectedtask: {},
             taskId: null,
             docRef: null,
@@ -118,7 +129,7 @@ export default {
             }
             console.log('task id', this.taskId);
 
-            let docRef = doc(db_tasks, this.taskId);
+            const docRef = doc(db_tasks, this.taskId);
 
             updateDoc(docRef, taskData)
                 .then(docRef => {
@@ -130,8 +141,18 @@ export default {
 
         },
 
-
-
+        deleteTask(task) {
+            let id = task.id;
+            const docRefDel = doc(db_tasks, id);
+            deleteDoc(docRefDel)
+                .then(() => {
+                    console.log("doc deleted")
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
         showEdit(task) {
             this.isOpen = true
             console.log('task here', task);
@@ -143,17 +164,20 @@ export default {
             this.endDate = task.endDate
             this.taskId = task.id
         },
-
         closeModal() {
-            this.isOpen = false
-        },
-        openModal() {
-            this.isOpen = true
-        }
-
-
+        this.isOpen = false
+    },
+    openModal() {
+        this.isOpen = true
     }
+    },
+
+
+ 
+
+
 }
+
 
 
 

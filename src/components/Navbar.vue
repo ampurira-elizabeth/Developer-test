@@ -12,10 +12,10 @@
                     <Chevron-DownIcon class="h-6 w-4 cursor-pointer " />
                 </div>
             </div>
-            <div class="flex space-x-0 ">
-                <UserCircleIcon class="h-4 w-4" />
-                <UserCircleIcon class="h-4 w-4" />
-                <UserCircleIcon class="h-4 w-4 " />
+            <div class="flex">
+                <UserCircleIcon class="h-8 w-8 rounded-full bg-gray-300" />
+                <UserCircleIcon class="h-8 w-8 -ml-4 bg-gray-300 border border-white rounded-full" />
+                <UserCircleIcon class="h-8 w-8 -ml-4 bg-gray-300 border border-white rounded-full" />
             </div>
             <div class="mx-5... flex border-2 border-gray-300 drop-shadow-lg">
                 <div>
