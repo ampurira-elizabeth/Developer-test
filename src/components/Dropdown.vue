@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <!-- <transition> -->
-        <select class="static bg-blue-100 cursor-pointer">
+
+    <div  >
+        <select   class="static bg-blue-100 cursor-pointer">
             <Chevron-DownIcon class="h-7 w-4 cursor-pointer ... " />
             <option >Projects</option>
             <option>Meridan</option>
@@ -11,8 +11,7 @@
             <option value="audi">Statra Insurance</option>
 
         </select>
-        <!-- </transition> -->
-        <div class="flex mt-5">
+        <div class="flex mt-5" >
             <div>
                 <PlusIcon class="h-7 w-4 cursor-pointer" />
             </div>
@@ -28,12 +27,28 @@
 <script>
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import { PlusIcon } from "@heroicons/vue/20/solid";
-// import {Squares2x2Icon} from "@heroicons/vue/20/solid";
 export default {
     components: {
         ChevronDownIcon,
         PlusIcon,
-        // Squares2x2Icon,
     },
+    data(){
+        return{
+                    isLargeScreen: false
+        }
+    },
+    mounted() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      this.isLargeScreen = window.innerWidth >= 992;
+    },
+  },
+
 }
 </script>

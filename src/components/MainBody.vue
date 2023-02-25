@@ -8,9 +8,11 @@
                 </div>
 
             </div>
-            <input type="date" class="text-sm bg-none" v-model="startDate" />
-            <input type="date" class="text-sm" v-endDate="endDate" />
-
+            <div v-for="task in tasks" :key="task.id">
+            <label class="text-sm cursor-pointer bg-gray-50" @click="setDate(task)">
+            {{ task.startDate }}
+            </label>
+        </div>
         </div>
         <div class="flex gap-4  flex-wrap">
             <div class="bg-gray-50  flex-1 text-sm ">
@@ -65,8 +67,6 @@ export default {
             tasks: [],
             selectedCategory: null,
             startDates: null,
-
-
         }
     },
 
@@ -91,8 +91,6 @@ export default {
         },
         setTask(task) {
             this.selectedCategory = task.category1;
-            this.startDates= task.startDate
-            console.log('sdate', this.startDates)
             console.log('selected category', this.selectedCategory);
             let filtered = this.tasks.filter((item) =>
                 item.category1 == this.selectedCategory
@@ -103,6 +101,16 @@ export default {
 
 
         },
+        setDate(task){
+               this.startDates= task.startDate;
+            console.log('sdate', this.startDates);
+            let filtered = this.tasks.filter((item) =>
+            item.startDate == this.startDates
+            )
+            this.tasks=[]
+            this.tasks.push(...filtered)
+
+        }
     },
     created() {
         this.getTasks();

@@ -60,7 +60,7 @@
                 <div>
                     <ChartBarIcon class="h-6 w-3 " />
                 </div>
-                <div>
+                <div  class="underline underline-offset-4 caret-red-500 ">
                     <h6>Kanban Workflow</h6>
                 </div>
             </div>
