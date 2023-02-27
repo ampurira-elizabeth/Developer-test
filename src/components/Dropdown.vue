@@ -1,6 +1,6 @@
 <template>
 
-    <div  >
+    <div   >
         <select   class="static bg-blue-100 cursor-pointer">
             <Chevron-DownIcon class="h-7 w-4 cursor-pointer ... " />
             <option >Projects</option>
@@ -15,7 +15,7 @@
             <div>
                 <PlusIcon class="h-7 w-4 cursor-pointer" />
             </div>
-            <div>
+            <div >
                 <button class="text-sm" >
                     Add New
                 </button>

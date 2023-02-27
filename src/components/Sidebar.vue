@@ -37,8 +37,8 @@
         </div>
         <div>
         </div>
-        <div>
-          <Dropdown />
+        <div  >
+          <Dropdown class="sm:w-20 md:shrink-0 md:max-lg:block"/>
         </div>
       </div>
       <div class="flex">
@@ -58,13 +58,11 @@
         </div>
       </div>
       <div class="mt-10">
-        <p>Projects <span class="text-sm ml-9"> 4/10</span> </p>
-        <ProgressBar />
+        <p>Projects <span class="text-sm ml-9 "> 4/10</span> </p>
+        <ProgressBar  class=" sm:w-20 md:shrink-0  "/>
         <p>Tasks <span class="text-sm ml-9">unlimited</span> </p>
-
       </div>
     </div>
-
 </div>
 </template>
 
