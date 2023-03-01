@@ -3,10 +3,10 @@
         <div class="flex w-full items-center justify-between ">
             <div class="mx-5 ... flex ">
                 <div>
-                    <StarIcon class="h-4 w-3 fill-white bg-yellow-500" />
+                    <StarIcon class="h-6 w-4 fill-white bg-yellow-500" />
                 </div>
                 <div class="w-full ">
-                    <h1 class="font-medium">Statra Insurance</h1>
+                    <h1 class="font-bold text-xl">Statra Insurance</h1>
                 </div>
                 <div>
                     <Chevron-DownIcon class="h-6 w-4 cursor-pointer " />
@@ -39,8 +39,8 @@
             </div>
 
         </div>
-        <div class="flex mt-5 p-2 font-medium drop-shadow-lg   border-b-2 border-gray-300  ">
-            <div class="flex  flex-1">
+        <div class="flex mt-5 p-2  cursor-pointer font-medium drop-shadow-lg border-b-2 border-gray-300  ">
+            <div class="flex  hover:bg-green-200  ">
                 <div>
                     <NewspaperIcon class="h-6 w-3" />
                 </div>
@@ -48,7 +48,7 @@
                     <h6>Backlog</h6>
                 </div>
             </div>
-            <div class="flex  flex-1">
+            <div class="flex ml-10  hover:bg-orange-200 ">
                 <div>
                     <CameraIcon class="h-6 w-3" />
                 </div>
@@ -56,7 +56,7 @@
                     <h6>Priority chart</h6>
                 </div>
             </div>
-            <div class="flex  flex-1">
+            <div class="flex ml-10  hover:bg-yellow-200 ">
                 <div>
                     <ChartBarIcon class="h-6 w-3 " />
                 </div>
@@ -112,12 +112,11 @@ import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import { ChevronUpIcon } from "@heroicons/vue/20/solid";
 import { UserCircleIcon } from "@heroicons/vue/20/solid";
 import Switch from "./Switch.vue"
-import Calendar from "./Calender.vue"
 import ModalPopup from './ModalPopup.vue'
 import DatePicker from './DatePicker.vue'
 export default {
     components: {
-        PlusIcon, StarIcon, DatePicker, Switch, ChevronUpIcon, Calendar, ModalPopup,
+        PlusIcon, StarIcon, DatePicker, Switch, ChevronUpIcon, ModalPopup,
         CameraIcon, MagnifyingGlassIcon, FolderArrowDownIcon,
         ChartBarIcon, NewspaperIcon, BriefcaseIcon, ChevronDownIcon, UserCircleIcon,
     },

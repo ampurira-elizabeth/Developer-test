@@ -1,12 +1,14 @@
 
 <template>
-    <div class=" bg-white p-5 m-8 text-left rounded-lg shadow-lg">
+    <div class=" bg-white p-4 m-8 text-left rounded-lg shadow-lg">
         <div class="flex mb-4">
-            <div>
-                <UserCircleIcon class="h-7 w-4" />
+            <div class="flex">
+                <UserCircleIcon class="h-8 w-8 rounded-full bg-gray-300" />
+                <UserCircleIcon class="h-8 w-8 -ml-4 bg-gray-300 border border-white rounded-full" />
+                <UserCircleIcon class="h-8 w-8 -ml-4 bg-gray-300 border border-white rounded-full" />
                 
             </div>
-            <div class=" ml-40 text-sm bg-yellow-100 text-red-500  p-1 rounded-lg">
+            <div class=" font-bold text-sm my-3 ml-40 text-sm bg-yellow-100 text-red-500  p-1 rounded-lg">
                 <p>{{ task?.priority }}</p>
             </div>
             <div>
@@ -14,14 +16,14 @@
                  
             </div>
         </div>
-        <p>{{ task?.projectNam }}</p>
+        <p class="font-bold text-sm my-3">{{ task?.projectNam }}</p>
         <span class="text-sm flex mt-3  ">
-            <h6 class="text-blue-800 bg-slate-400 "> {{ task?.category1 }}</h6>
-            <h6 class="ml-7 text-pink-800 bg-pink-200 ">{{ task?.category2 }}</h6>
+            <h6 class="w-auto px-2 bg-blue-200 text-blue-600 py-0.5 rounded-full font-bold captalise"> {{ task?.category1 }}</h6>
+            <h6 class="w-auto px-2 bg-pink-200 text-pink-600 py-0.5 rounded-full font-bold captalise">{{ task?.category2 }}</h6>
         </span>
         <div class="flex mt-2">
             <div>
-                <CalendarIcon class="h-4 w-4 opacity-25 " />
+                <CalendarIcon class="h-4 w-4 opacity-25" />
             </div>
             <h6 class="text-sm text-blue-600/25">{{ task?.startDate }} - {{ task?.endDate }}</h6>
             <div>

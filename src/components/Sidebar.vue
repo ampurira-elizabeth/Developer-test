@@ -1,88 +1,69 @@
 <template>
-  <div class="h-screen px-2 bg-gray-50 pt-2 space-y-5">
-    <div>
-      <h3 class="text-xl font-medium p-3">Flows list</h3>
-    </div>
-    <div class="bg-yellow-200 ... flex rounded-lg ">
-      <div>
+  <div class="w-1/4  h-full px-7 pt-7 pb-44 flex flex-col space-y-5 overflow-auto">
+      <div class="font-bold text-xl">Flow List</div>
+      <div class="flex bg-lime-300 rounded-lg p-1">
+        <div> 
         <PlusIcon class="h-6 w-4" />
       </div>
       <div>
-        <button>
-          <h5 class="ml-2 ">Add New Task</h5>
-        </button>
-      </div>
+      <button class="text-bold" >Add new task</button>
     </div>
-
-    <div class="sidebar top-0 bottom-0 left-0 w-full font-medium indent-1 text-left ... ">
-      <div class="flex">
-        <div>
-          <BriefcaseIcon class="h-5 w-5 p-1" />
-        </div>
-        <div>
-          <p> Plan</p>
-        </div>
+    </div>
+    
+      <div class="space-y-4">
+          <NavList :items="navItems"/>
       </div>
-      <div class="flex">
+      
+         <div class="flex mt-28">
         <div>
-          <BriefcaseIcon class="h-5 w-5 p-1" />
+          <WalletIcon class="h-6 stroke-2" />
         </div>
-        <div>
-          <p> Task List</p>
-        </div>
-      </div>
-      <div class="flex">
-        <div>
-          <BriefcaseIcon class="h-5 w-5 p-1" />
-        </div>
-        <div>
-        </div>
-        <div  >
-          <Dropdown class="sm:w-20 md:shrink-0 md:max-lg:block"/>
-        </div>
-      </div>
-      <div class="flex">
-        <div>
-          <TagIcon class="h-5 w-4" />
-        </div>
-        <div>
-          <p> Tags</p>
-        </div>
-      </div>
-      <div class="flex mt-48">
-        <div>
-          <InboxIcon class="h-5 w-4 " />
-        </div>
-        <div>
+        <div class="font-bold">
           <p> Free Plan</p>
         </div>
       </div>
-      <div class="mt-10">
-        <p>Projects <span class="text-sm ml-9 "> 4/10</span> </p>
+      <div class=" font-bold">
+        <p>Projects <span class="text-sm ml-4 "> 4/10</span> </p>
         <ProgressBar  class=" sm:w-20 md:shrink-0  "/>
-        <p>Tasks <span class="text-sm ml-9">unlimited</span> </p>
+        <p>Tasks <span class="text-sm ml-3">unlimited</span> </p>
       </div>
-    </div>
-</div>
+  </div>
 </template>
 
-<script lang="ts">
-import { PlusIcon } from "@heroicons/vue/20/solid";
-import { ChevronDownIcon } from "@heroicons/vue/20/solid";
-import { InboxIcon } from "@heroicons/vue/20/solid";
-import { TagIcon } from "@heroicons/vue/20/solid";
-import { BriefcaseIcon } from "@heroicons/vue/20/solid";
-import Dropdown from "./Dropdown.vue";
+<script setup>
+import { ref, reactive } from 'vue'
+import {
+  WalletIcon,
+} from '@heroicons/vue/24/outline'
+import NavList from './NavItem.vue'
+import {PlusIcon} from '@heroicons/vue/24/solid'
 import ProgressBar from "./ProgressBar.vue";
 
-
-
-export default {
-  components: {
-    PlusIcon, Dropdown,
-    ProgressBar,
-    ChevronDownIcon, InboxIcon, TagIcon, BriefcaseIcon
+const navItems = [
+  { label: 'Plan', icon: 'CalendarIcon', subList: [] },
+  {
+      label: 'Task List', name: 'task', icon: 'ClipboardDocumentListIcon', subList: [
+          { name: 'Meridian', color: 'bg-rose-600' },
+          { name: 'Risen', color: 'bg-blue-600' },
+          { name: 'SkillBox', color: 'bg-yellow-400' },
+          { name: 'Statra Insurance', color: 'bg-pink-600' },
+      ]
   },
+  {
+      label: 'Projects', name: 'project', icon: 'FolderIcon', subList: [
+          { name: 'Meridian', color: 'bg-rose-600' },
+          { name: 'Risen', color: 'bg-blue-600' },
+          { name: 'SkillBox', color: 'bg-green-600' },
+          { name: 'Statra Insurance', color: 'bg-pink-600' },
+          { name: '+Add New' },
 
-}
+      ]
+  },
+  {
+      label: 'Tags', name: 'tag', icon: 'TagIcon', subList: []},
+];
 </script>
+
+<style scoped>
+
+</style>

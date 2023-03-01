@@ -14,12 +14,9 @@
 
 <script>
 import {ref} from "vue";
-import  * as Vue from "vue";
 import MainBody from "./components/MainBody.vue"
 import Navbar from "./components/Navbar.vue"
 import Sidebar from "./components/Sidebar.vue"
-import {reactive, computed} from "vue"
-import VueMq from "vue3-mq";
 import Card from "./components/Card.vue"
 
 export default {
@@ -29,25 +26,13 @@ export default {
     Card,
     MainBody,
   },
-  setup(){
-    const windowSize= reactive({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    })
-    const isSmallScreen = computed(() => {
-      return windowSize.width < 600
-    })
-    window.addEventListener('resize', () => {
-      windowSize.width = window.innerWidth
-      windowSize.height = window.innerHeight
-    })
-    return{
-      isSmallScreen
-    }
-  }
+
 }
 
 </script>
 
 <style >
+:root {
+  @apply font-serif;
+}
 </style>

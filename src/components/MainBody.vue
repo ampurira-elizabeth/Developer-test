@@ -14,30 +14,29 @@
             </label>
         </div>
         </div>
-        <div class="flex gap-4  flex-wrap">
-            <div class="bg-gray-50  flex-1 text-sm ">
-                <P class="text-left mx-8">To do
+        <div class="flex gap-4  flex-wrap ">
+            <div class="bg-gray-50  flex-1 text-bold " >
+                <P class="text-left mx-8 text-xl">To do 
                     <span class="p-2"> :</span>
                 </P>
-                <draggable v-model="tasks" @start="drag = true" @end="drag = false">
-                    <div v-for="task in tasks" :key="task.id">
+                <draggable v-model="tasks" @start="drag = true" @end="drag = false"  >
+                    <div v-for="task in tasks" :key="task.id"   >
                         <Card :task="task" :item="item" />
                     </div>
                 </draggable>
             </div>
 
-            <div class="bg-gray-50 flex-1 text-sm">
-                <p class="mx-10 text-left">In progress
+            <div class="bg-gray-50 flex-1 text-bold">
+                <p class="mx-10 text-left  text-xl ">In progress
                     <span class="p-2"> :</span>
                 </p>
                 <draggable v-model="tasks" @start="drag = true" @end="drag = false">
                     <div v-for="task in tasks" :key="task.id">
-
                         <Card :task="task" />
                     </div>
                 </draggable>
             </div>
-            <div class="bg-gray-50  flex-1 text-sm">
+            <div class="bg-gray-50  flex-1 text-bold  text-xl">
                 <P class="mx-10 text-left">Done
                     <span class="p-2"> :</span>
                 </P>
@@ -85,10 +84,20 @@ export default {
                 tasks.push(Docdata)
                 console.log('data fetched', Docdata);
             })
-
             this.tasks = tasks
-
         },
+
+    // async groupedCards() {
+    //   const groups = {}
+    //   Card.value.forEach((card) => {
+    //     if (!groups[card.status]) {
+    //       groups[card.status] = []
+    //     }
+    //     groups[card.status].push(card)
+    //   })
+    //   return groups
+    // },
+        
         setTask(task) {
             this.selectedCategory = task.category1;
             console.log('selected category', this.selectedCategory);
@@ -98,8 +107,6 @@ export default {
             this.tasks = []
             this.tasks.push(...filtered)
             console.log('filtered tasks', typeof (filtered))
-
-
         },
         setDate(task){
                this.startDates= task.startDate;
