@@ -1,12 +1,12 @@
 <template>
     <div class="flex">
-        <p  @click="showEdit(task)" class="rounded-md  ml-8  text-sm font-medium text-black  ">
+        <p @click="showEdit(task)" class="rounded-md  ml-8  text-sm font-medium text-black  ">
             <!-- edit -->
-            <PencilIcon class="h-7 w-4 "/>
+            <PencilIcon class="h-7 w-4 " />
         </p>
         <div>
             <!-- <p >del</p> -->
-            <TrashIcon class="h-7 w-4 ml-2" @click="deleteTask(task)"   />
+            <TrashIcon class="h-7 w-4 ml-2" @click="deleteTask(task)" />
 
         </div>
     </div>
@@ -82,7 +82,7 @@
 import { ref } from 'vue'
 import db_tasks from '../../server/server.js'
 import { TrashIcon } from "@heroicons/vue/20/solid";
-import {PencilIcon} from "@heroicons/vue/20/solid"
+import { PencilIcon } from "@heroicons/vue/20/solid"
 import { addDoc, doc, setDoc, updateDoc, deleteDoc }
     from 'firebase/firestore';
 import {
@@ -94,7 +94,7 @@ import {
 } from '@headlessui/vue'
 
 export default {
-    components:{
+    components: {
         TrashIcon,
         PencilIcon,
     },
@@ -138,7 +138,6 @@ export default {
                 .catch(error => {
                     console.log(error);
                 })
-
         },
 
         deleteTask(task) {
@@ -165,15 +164,15 @@ export default {
             this.taskId = task.id
         },
         closeModal() {
-        this.isOpen = false
-    },
-    openModal() {
-        this.isOpen = true
-    }
+            this.isOpen = false
+        },
+        openModal() {
+            this.isOpen = true
+        }
     },
 
 
- 
+
 
 
 }

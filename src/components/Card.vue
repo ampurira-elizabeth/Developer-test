@@ -64,6 +64,7 @@ export default {
             category1: "",
             category2: "",
         }
+        
     },
    
 props:{
@@ -71,9 +72,6 @@ props:{
 },
 
 methods:{
-
-        
-
 }
 
 }
