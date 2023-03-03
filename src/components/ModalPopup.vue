@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <button type="button" @click="openModal"
-            class="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+            class="rounded-md font-bold bg-black bg-opacity-20 px-4 py-2 text-sm text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
             Add New Task
         </button>
     </div>
@@ -129,19 +129,6 @@ async function handleSubmit(){
         .catch((error) => {
             console.error("Error writing document: ", error)});
         }
-    // console.log(`priority ${priority.value}, projectName ${projectName.value}, 
-    // startDate ${startDate.value}, endDate ${endDate.value}
-    // category1 ${category1.value}, category2 ${category2.value}`)
-
-
-//  const data= JSON.parse(localStorage.getItem('projectName'));
-//  const projects=document.getElementById('projectName');
-//  projects.innerHTML=data
-
-//  const fetchdata =()=>{
-//     fetch('http://localhost:5173/')
-//   .then(res => res.json())
-//  }
 
 function closeModal() {
     isOpen.value = false
