@@ -8,7 +8,7 @@
                 <UserCircleIcon class="h-8 w-8 -ml-4 bg-gray-300 border border-white rounded-full" />
                 
             </div>
-            <div class=" font-bold text-sm my-3 ml-40 text-sm bg-yellow-100 text-red-500  p-1 rounded-lg">
+            <div class=" font-bold text-sm my-3 ml-40 bg-yellow-100 text-red-500  p-1 rounded-lg">
                 <p>{{ task?.priority }}</p>
             </div>
             <div>
@@ -29,7 +29,6 @@
             <div>
                 <EditPopup :task="task" />
             </div>
-
         </div>
     </div>
 </template>

@@ -8,7 +8,8 @@
         <div class="flex items-center justify-between">
           <div class="flex -space-x-4">
             <div class="h-10 w-10 rounded-full border-2 border-slate-500 bg-black" v-for="member in card.members"
-              :key="member"></div>
+              :key="member">
+            </div>
           </div>
           <div class="w-auto px-2 bg-rose-200 text-rose-600  rounded-full font-bold">{{ card.priority }}</div>
         </div>
@@ -16,6 +17,10 @@
         <div class="flex items-center space-x-1 my-1 text-[10px]">
           <div class="w-auto px-2 bg-blue-200 text-blue-600 py-0.5 rounded-full font-bold ">Prototype</div>
           <div class="w-auto px-2 bg-pink-200 text-pink-600 py-0.5 rounded-full font-bold">Design</div>
+          <!-- <p @click="deleteTask(card)">del </p> -->
+          <div>
+            <TrashIcon class="h-7 w-4 ml-2 cursor-pointer" @click="deleteTask(card.id)" />
+          </div>
         </div>
         <div class="flex items-center space-x-2 text-slate-500 mt-4 text-[10px]">
           <CalendarIcon class="h-5 stroke-2" />
@@ -27,14 +32,14 @@
 </template>
 <script setup>
 import { ref, reactive } from 'vue'
+import { TrashIcon } from "@heroicons/vue/20/solid";
 
 const cards = ref([
   { id: 1, status: 'In progress', priority: 'high', date: '01-03-2023 - 08-05-2024', members: [1, 2] },
   { id: 2, status: 'done', priority: 'high', date: '02-03-2023 - 08-05-2024  ', members: [1] },
   { id: 3, status: 'to-do', priority: 'low', date: '01-03-2023 - 08-05-2024', members: [1, 2, 3] },
-  // { id: 4, status: 'In progress', priority: 'low', date: '01-03-2023 - 08-05-2024', members: [1] },
-  { id: 5, status: 'to-do', priority: 'high', date: '01-03-2023 - 08-05-2024', members: [1, 4, 5] },
-  { id: 6, status: 'done', priority: 'low', date: '01-03-2023 - 08-05-2024', members: [1, 2] },
+  { id: 5, status: 'to-do', priority: 'high', date: '01-03-2023 - 08-05-2024', members: [1, 4] },
+  { id: 6, status: 'done', priority: 'low', date: '01-03-2023 - 08-05-2024', members: [1, 2, 5,] },
 ])
 
 const columns = ref(['to-do', 'In progress', 'done'])
@@ -43,6 +48,13 @@ const changeStatus = (id) => {
   setTimeout(() => {
     document.getElementById(id).style.display = 'none';
   }, 0)
+}
+
+const deleteTask = (id) => {
+  const filteredArray = cards.value.filter(card => card.id !== id);
+  console.log('filtered',filteredArray);
+  cards.value = filteredArray;
+
 }
 </script>
 
