@@ -19,10 +19,15 @@
          
         </div>
         <div class="flex items-center space-x-1 my-1 text-[10px]">
-          <div class="w-auto px-2 bg-blue-200 text-blue-600 py-0.5 rounded-full font-bold ">
-            Prototype
+          <div @click="editP"  class="w-auto px-2 bg-blue-200 text-blue-600 py-0.5 rounded-full font-bold ">
+            {{ editedPriority }}
+            <input type="text" v-model="inputValue" v-if="isEditOpen === true">
           </div>
-          <div class="w-auto px-2 bg-pink-200 text-pink-600 py-0.5 rounded-full font-bold">Design</div>
+          <div   @click="editPriority" class="w-auto px-2 bg-pink-200 text-pink-600 py-0.5 rounded-full font-bold">
+            <!-- Design -->
+            {{ editedPriority2 }}
+            <input type="text" v-model="inputValue" v-if="isEditOpen === true">
+          </div>
           <div>
             <PencilIcon class="h-7 w-4"  @click=edit(card.id)  />
 
@@ -51,7 +56,9 @@ const cards = ref([
 ])
 const columns = ref(['to-do', 'In progress', 'done'])
 const editedTask= ref('Documentation')
-// const editedPriority = ref('Prototype')
+ const editedPriority = ref('priority')
+ const editedPriority2 = ref('priority')
+
 const inputValue = ref('')
 const isEditOpen = ref(false)
 const changeStatus = (id) => {
@@ -72,10 +79,28 @@ const edit = ()=>{
   if(isEditOpen.value == true ) {
     toggleInput();
     editedTask.value = inputValue.value
-    editedPriority.value = inputValue.value
+    // editedPriority.value = inputValue.value
     cards.value.push( editedTask.value)  
     // cards.value.push(editedPriority.value)
     console.log('edited', editedTask.value );
+  }else toggleInput()
+}
+
+const editP = ()=>{
+  if(isEditOpen.value == true ) {
+    toggleInput();
+    editedPriority.value = inputValue.value
+    cards.value.push( editedPriority.value)  
+    console.log('edited', editedPriority.value );
+  }else toggleInput()
+}
+
+const editPriority = ()=>{
+  if(isEditOpen.value == true ) {
+    toggleInput();
+    editedPriority2.value = inputValue.value
+    cards.value.push( editedPriority2.value)  
+    console.log('edited', editedPriority2.value );
   }else toggleInput()
 }
 
