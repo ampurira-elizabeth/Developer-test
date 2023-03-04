@@ -65,7 +65,6 @@
                 </div>
             </div>
         </div>
-
         <!-- mainbody -->
         <div class=" font-bold mr-10 p-2 flex border-b-2 border-gray-300   ">
             <div class="flex flex-1">
@@ -95,7 +94,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
