@@ -28,10 +28,13 @@
             {{ editedPriority2 }}
             <input type="text" v-model="inputValue" v-if="isEditOpen === true">
           </div>
-          <div>
+          <div class="flex">
+            <div>
             <PencilIcon class="h-7 w-4"  @click=edit(card.id)  />
-
+          </div>
+          <div>
             <TrashIcon class="h-7 w-4 ml-2 cursor-pointer" @click="deleteTask(card.id)" />
+          </div>
           </div>
         </div>
         <div class="flex items-center space-x-2 text-slate-500 mt-4 text-[10px]">
@@ -56,8 +59,8 @@ const cards = ref([
 ])
 const columns = ref(['to-do', 'In progress', 'done'])
 const editedTask= ref('Documentation')
- const editedPriority = ref('priority')
- const editedPriority2 = ref('priority')
+ const editedPriority = ref('prototype')
+ const editedPriority2 = ref('Design')
 
 const inputValue = ref('')
 const isEditOpen = ref(false)
