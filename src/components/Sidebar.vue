@@ -25,7 +25,8 @@
       <div class=" font-bold">
         <p>Projects <span class="text-sm ml-4 "> 4/10</span> </p>
         <ProgressBar  class=" sm:w-20 md:shrink-0  "/>
-        <p>Tasks <span class="text-sm ml-3">unlimited</span> </p>
+        <p>Tasks <span class="text-sm ml-3 
+          ">unlimited</span> </p>
       </div>
   </div>
 </template>

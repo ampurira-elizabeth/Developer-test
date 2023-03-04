@@ -3,13 +3,13 @@
         <div class="flex w-full items-center justify-between ">
             <div class="mx-5 ... flex ">
                 <div>
-                    <StarIcon class="h-6 w-4 fill-white bg-yellow-500" />
+                    <StarIcon class="h-6 w-4 fill-white bg-yellow-300 rounded-full" />
                 </div>
                 <div class="w-full ">
                     <h1 class="font-bold text-xl">Statra Insurance</h1>
                 </div>
                 <div>
-                    <Chevron-DownIcon class="h-6 w-4 cursor-pointer " />
+                    <Chevron-DownIcon class="h-8 w-4 cursor-pointer " />
                 </div>
             </div>
             <div class="flex">
@@ -40,7 +40,7 @@
 
         </div>
         <div class="flex mt-5 p-2  font-bold cursor-pointer drop-shadow-lg border-b-2 border-gray-300  ">
-            <div class="flex  hover:bg-green-200  ">
+            <div class="flex  hover:text-pink-500 ease-in duration-500 ">
                 <div>
                     <NewspaperIcon class="h-6 w-3" />
                 </div>
@@ -48,7 +48,7 @@
                     <h6>Backlog</h6>
                 </div>
             </div>
-            <div class="flex ml-10  hover:bg-orange-200 ">
+            <div class="flex ml-10  hover:text-orange-400 ease-in duration-500 ">
                 <div>
                     <CameraIcon class="h-6 w-3" />
                 </div>
@@ -56,11 +56,11 @@
                     <h6>Priority chart</h6>
                 </div>
             </div>
-            <div class="flex ml-10  hover:bg-yellow-200 ">
+            <div class="flex ml-10  hover:text-yellow-500 ease-in duration-500 ">
                 <div>
                     <ChartBarIcon class="h-6 w-3 " />
                 </div>
-                <div  class="underline underline-offset-4 caret-red-500 ">
+                <div class="underline underline-offset-4 caret-red-500 ">
                     <h6>Kanban Workflow</h6>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                 <div>
                     <Switch v-model="switchState" class=" mr-2" />
                 </div>
-             <div >
+                <div>
                     <DatePicker class="bg-none" />
                 </div>
             </div>
@@ -98,17 +98,13 @@
 </template>
 
 <script  >
-import { PlusIcon } from "@heroicons/vue/20/solid";
-import { StarIcon } from "@heroicons/vue/20/solid";
-import { CameraIcon } from "@heroicons/vue/20/solid";
-import { MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
-import { FolderArrowDownIcon } from "@heroicons/vue/20/solid";
-import { ChartBarIcon } from "@heroicons/vue/20/solid";
-import { NewspaperIcon } from "@heroicons/vue/20/solid";
-import { BriefcaseIcon } from "@heroicons/vue/20/solid";
-import { ChevronDownIcon } from "@heroicons/vue/20/solid";
-import { ChevronUpIcon } from "@heroicons/vue/20/solid";
-import { UserCircleIcon } from "@heroicons/vue/20/solid";
+import {
+    PlusIcon, StarIcon,
+    CameraIcon, MagnifyingGlassIcon,
+    FolderArrowDownIcon, ChartBarIcon,
+    NewspaperIcon, BriefcaseIcon, ChevronDownIcon,
+    ChevronUpIcon, UserCircleIcon
+} from "@heroicons/vue/20/solid";
 import Switch from "./Switch.vue"
 import ModalPopup from './ModalPopup.vue'
 import DatePicker from './DatePicker.vue'
@@ -134,6 +130,4 @@ export default {
 </script>
 
 
-<style>
-
-</style>
+<style></style>

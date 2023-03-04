@@ -1,7 +1,6 @@
 <template> 
 <div :class="modelValue ? 'bg-green-550' : 'bg-red-400'" @click="toggle" class="w-11 h-2 flex items-center bg-green-500 transition-all duration-500 p-1 rounded-full justify center pt-5"> 
 <div :class="{'translate-x-6':modelValue}" class="w-4 h-4 rounded-full mb-4 transition-all duration-500 transform bg-white ">
-  
 </div>
 
 </div>
@@ -13,7 +12,6 @@
         modelValue:{
             type:Boolean,
         }
-
     },
     methods:{
         toggle(){

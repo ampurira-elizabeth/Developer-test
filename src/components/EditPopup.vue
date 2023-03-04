@@ -1,11 +1,9 @@
 <template>
     <div class="flex">
         <p @click="showEdit(task)" class="rounded-md  ml-8  text-sm font-medium text-black  ">
-            <!-- edit -->
             <PencilIcon class="h-7 w-4 " />
         </p>
         <div>
-            <!-- <p >del</p> -->
             <TrashIcon class="h-7 w-4 ml-2" @click="deleteTask(task)" />
 
         </div>
@@ -18,7 +16,6 @@
             <div class="flex ">
                 <div class="p-3">
                     <label> Project </label> <br />
-                    <!-- <input class=" w-40 text-center bg-gray-100" type="project"  v-model="taskId" /> <br /> -->
                     <input class=" w-40 text-center bg-gray-100" type="project" required v-model="projectName" /> <br />
                 </div>
                 <div class="ml-2 p-3 ">
