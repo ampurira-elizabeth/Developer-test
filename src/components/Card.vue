@@ -32,8 +32,6 @@
         </div>
     </div>
 </template>
-
-
 <script >
 import { UserCircleIcon } from "@heroicons/vue/20/solid";
 import { CalendarIcon } from "@heroicons/vue/20/solid";

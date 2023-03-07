@@ -35,9 +35,7 @@
                 <div>
                     <ModalPopup />
                 </div>
-
             </div>
-
         </div>
         <div class="flex mt-5 p-2  font-bold cursor-pointer drop-shadow-lg border-b-2 border-gray-300  ">
             <div class="flex  hover:text-pink-500 ease-in duration-500 ">

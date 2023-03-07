@@ -1,5 +1,5 @@
 <template>
-  <div class="w-1/4  h-full px-7 pt-7 pb-44 flex flex-col space-y-5 overflow-auto">
+  <div class="w-1/4 h-screen px-7 pt-7 pb-44 flex flex-col space-y-5">
       <div class="font-bold text-xl">Flow List</div>
       <div class="flex bg-lime-300 rounded-lg p-1">
         <div> 
@@ -9,11 +9,9 @@
       <button class="text-bold" >Add new task</button>
     </div>
     </div>
-    
       <div class="space-y-4">
           <NavList :items="navItems"/>
       </div>
-      
          <div class="flex mt-28">
         <div>
           <WalletIcon class="h-6 stroke-2" />
@@ -25,8 +23,7 @@
       <div class=" font-bold">
         <p>Projects <span class="text-sm ml-4 "> 4/10</span> </p>
         <ProgressBar  class=" sm:w-20 md:shrink-0  "/>
-        <p>Tasks <span class="text-sm ml-3 
-          ">unlimited</span> </p>
+        <p>Tasks <span class="text-sm ml-3">unlimited</span> </p>
       </div>
   </div>
 </template>
